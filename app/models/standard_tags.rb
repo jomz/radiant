@@ -1,7 +1,6 @@
 module StandardTags
 
   include Radiant::Taggable
-  include LocalTime
 
   require "will_paginate/view_helpers"
   include WillPaginate::ViewHelpers
