@@ -3,7 +3,8 @@ RAILS_ENV = 'test'
 BASE_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '../../'))
 require 'fileutils'
 require 'tempfile'
-require 'spec'
+require 'rspec/rails'
+
 require File.join(BASE_ROOT, 'spec/matchers/generator_matchers')
 require File.join(BASE_ROOT, 'lib/plugins/string_extensions/lib/string_extensions')
 
@@ -66,7 +67,7 @@ unless defined?(::GENERATOR_SUPPORT_LOADED) && ::GENERATOR_SUPPORT_LOADED
     RAILS_ROOT = tmp_dir.dup
   end
 
-  require 'initializer'
+  # require 'initializer'
 
   # Mocks out the configuration
   module Rails
@@ -75,7 +76,7 @@ unless defined?(::GENERATOR_SUPPORT_LOADED) && ::GENERATOR_SUPPORT_LOADED
     end
   end
 
-  require 'rails_generator'
+  # require 'rails_generator'
 
   module GeneratorSpecHelperMethods
     # Instantiates the Generator.
@@ -158,7 +159,7 @@ end
 
 Git = Module.new unless defined?(::Git)
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   config.include(Spec::Matchers::GeneratorMatchers)
 end
 
