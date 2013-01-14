@@ -8,3 +8,4 @@ end
 
 require 'radiant/engine'
 require 'radiant/version'
+require 'radiant/core'
