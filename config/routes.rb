@@ -1,41 +1,39 @@
-ActionController::Routing::Routes.draw do |map|
+Radiant::Engine.routes.draw do
 
   # Admin RESTful Routes
-  map.namespace :admin, :member => { :remove => :get } do |admin|
-    admin.resources :pages do |pages|
-      pages.resources :children, :controller => "pages"
+  namespace :admin do
+    # member do
+      # get => :remove
+    # end
+    
+    resources :pages do
+      resources :children, :controller => "pages"
     end
-    admin.resources :layouts
-    admin.resources :users
+    resources :layouts
+    resources :users
+    
+    match 'preview', :to => "admin/pages#preview", :via => [:put, :post]
+    
+    resource :preferences
+    resource :configuration, :controller => 'configuration'
+    resources :extensions, :only => :index
+    resources :page_parts
+    resources :page_fields
+    
+    match 'reference/:type.:format', :to => 'references#show', :via => [:get]
+    
+    controller :welcome do
+      match 'welcome', :action => 'index'
+      match 'login'
+      match 'logout'
+    end
   end
-  map.preview 'admin/preview', :controller => 'admin/pages', :action => 'preview', :conditions => {:method => [:post, :put]}
-
-  map.namespace :admin do |admin|
-    admin.resource :preferences
-    admin.resource :configuration, :controller => 'configuration'
-    # admin.resources :settings
-    admin.resources :extensions, :only => :index
-    admin.resources :page_parts
-    admin.resources :page_fields
-    admin.reference '/reference/:type.:format', :controller => 'references', :action => 'show', :conditions => {:method => :get}
-  end
-
-  # Admin Routes
-  map.with_options(:controller => 'admin/welcome') do |welcome|
-    welcome.admin          'admin',                              :action => 'index'
-    welcome.welcome        'admin/welcome',                      :action => 'index'
-    welcome.login          'admin/login',                        :action => 'login'
-    welcome.logout         'admin/logout',                       :action => 'logout'
-  end
-
-  # Site URLs
-  map.with_options(:controller => 'site') do |site|
-    site.root                                                    :action => 'show_page', :url => '/'
-    site.not_found         'error/404',                          :action => 'not_found'
-    site.error             'error/500',                          :action => 'error'
-
-    # Everything else
-    site.connect           '*url',                               :action => 'show_page'
+  
+  controller :site do
+    root :to => '#show_page', :url => '/'
+    match 'error/404', :action => 'not_found', :as => 'not_found'
+    match 'error/500', :action => 'error', :as => 'error'
+    match ":url", :action => 'show_page', :as => 'connect'
   end
 
 end
