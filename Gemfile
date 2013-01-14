@@ -1,6 +1,8 @@
 source :rubygems
 
 gemspec
+gem "dataset", :path => "vendor/dataset"
+
 # gem "compass-rails", "~> 1.0.3"
 
 if ENV['TRAVIS']
