@@ -3,8 +3,6 @@ require_dependency 'radiant'
 class Radiant::ApplicationController < ActionController::Base
   include LoginSystem
   
-  protect_from_forgery
-  
   before_filter :set_current_user
   before_filter :set_timezone
   before_filter :set_user_locale
