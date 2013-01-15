@@ -1,9 +1,7 @@
 require_dependency 'radiant'
 
-class ApplicationController < ActionController::Base
+class Radiant::ApplicationController < ActionController::Base
   include LoginSystem
-  
-  filter_parameter_logging :password, :password_confirmation
   
   protect_from_forgery
   

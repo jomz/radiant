@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + "/../../spec_helper"
+require File.dirname(__FILE__) + "/../../../spec_helper"
 
-describe Admin::WelcomeController do
+describe Radiant::Admin::WelcomeController do
   dataset :users
   
   it "should redirect to page tree on get to /admin/welcome" do

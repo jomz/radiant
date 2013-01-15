@@ -1,4 +1,4 @@
-class SiteController < ApplicationController
+class Radiant::SiteController < Radiant::ApplicationController
   include Radiant::Pagination::Controller
 
   skip_before_filter :verify_authenticity_token

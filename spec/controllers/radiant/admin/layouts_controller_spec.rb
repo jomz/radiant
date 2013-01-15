@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + "/../../spec_helper"
+require File.dirname(__FILE__) + "/../../../spec_helper"
 
-describe Admin::LayoutsController do
+describe Radiant::Admin::LayoutsController do
   dataset :users, :pages_with_layouts
 
   before :each do

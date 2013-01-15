@@ -1,4 +1,4 @@
-class Admin::ExtensionsController < ApplicationController
+class Radiant::Admin::ExtensionsController < Radiant::ApplicationController
   only_allow_access_to :index,
     :when => :admin,
     :denied_url => { :controller => 'pages', :action => 'index' },

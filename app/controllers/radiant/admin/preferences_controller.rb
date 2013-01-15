@@ -1,4 +1,4 @@
-class Admin::PreferencesController < ApplicationController
+class Radiant::Admin::PreferencesController < Radiant::ApplicationController
   before_filter :load_user
 
   def initialize

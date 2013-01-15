@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::ResourceController
+class Radiant::Admin::UsersController < Radiant::Admin::ResourceController
   paginate_models
   only_allow_access_to :index, :show, :new, :create, :edit, :update, :remove, :destroy,
     :when => :admin,

@@ -1,5 +1,5 @@
-require 'will_paginate'
-class Admin::ResourceController < ApplicationController
+# require 'will_paginate'
+class Radiant::Admin::ResourceController < Radiant::ApplicationController
   extend Radiant::ResourceResponses
   
   helper_method :model, :current_object, :models, :current_objects, :model_symbol, :plural_model_symbol, :model_class, :model_name, :plural_model_name
@@ -9,8 +9,8 @@ class Admin::ResourceController < ApplicationController
   before_filter :load_model, :only => [:new, :create, :edit, :update, :remove, :destroy]
   after_filter :clear_model_cache, :only => [:create, :update, :destroy]
 
-  cattr_reader :paginated
-  cattr_accessor :default_per_page, :will_paginate_options
+  # cattr_reader :paginated
+  # cattr_accessor :default_per_page, :will_paginate_options
   
   responses do |r|
     # Equivalent respond_to block for :plural responses:

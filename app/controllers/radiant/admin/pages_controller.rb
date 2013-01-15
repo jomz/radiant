@@ -1,4 +1,4 @@
-class Admin::PagesController < Admin::ResourceController
+class Radiant::Admin::PagesController < Radiant::Admin::ResourceController
   before_filter :initialize_meta_rows_and_buttons, :only => [:new, :edit, :create, :update]
   before_filter :count_deleted_pages, :only => [:destroy]
   

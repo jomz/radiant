@@ -1,8 +1,8 @@
 #encoding: utf-8
 
-require File.dirname(__FILE__) + '/../../spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
-describe Admin::PagesController do
+describe Radiant::Admin::PagesController do
   dataset :users, :pages
 
   before :each do

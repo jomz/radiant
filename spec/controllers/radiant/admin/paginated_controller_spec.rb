@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + "/../../spec_helper"
+require File.dirname(__FILE__) + "/../../../spec_helper"
 
-describe Admin::UsersController do
+describe Radiant::Admin::UsersController do
 
   it "should be paginated" do
     Admin::UsersController.paginated.should be_true

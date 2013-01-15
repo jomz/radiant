@@ -1,4 +1,4 @@
-class Admin::PagePartsController < Admin::ResourceController
+class Radiant::Admin::PagePartsController < Radiant::Admin::ResourceController
   def create
     self.model.attributes = params[model_symbol]
     @controller_name = 'page'

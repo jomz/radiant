@@ -1,7 +1,7 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.dirname(__FILE__) + '/../../spec_helper'
 
 # http://blog.davidchelimsky.net/articles/2007/06/03/oxymoron-testing-behaviour-of-abstractions
-describe ApplicationController do
+describe Radiant::ApplicationController do
   dataset :users
 
   it 'should include LoginSystem' do

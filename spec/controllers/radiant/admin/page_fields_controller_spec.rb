@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/../../spec_helper'
+require File.dirname(__FILE__) + '/../../../spec_helper'
 
-describe Admin::PageFieldsController do
+describe Radiant::Admin::PageFieldsController do
   dataset :users
 
   before do

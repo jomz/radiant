@@ -1,4 +1,4 @@
-class Admin::ConfigurationController < ApplicationController
+class Radiant::Admin::ConfigurationController < Radiant::ApplicationController
 
   # Admin::ConfigurationController handles the batch-updating of Radiant::Config entries.
   # It accepts any set of config name-value pairs but is accessible only to administrators.
@@ -7,10 +7,10 @@ class Admin::ConfigurationController < ApplicationController
   
   before_filter :initialize_config
   
-  only_allow_access_to :edit, :update,
-    :when => [:admin],
-    :denied_url => { :controller => 'admin/configuration', :action => 'show' },
-    :denied_message => 'You must have admin privileges to edit site configuration.'
+  # only_allow_access_to :edit, :update,
+  #   :when => [:admin],
+  #   :denied_url => { :controller => 'admin/configuration', :action => 'show' },
+  #   :denied_message => 'You must have admin privileges to edit site configuration.'
 
   def show
     @user = current_user

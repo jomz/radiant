@@ -1,4 +1,4 @@
-class Admin::PageFieldsController < Admin::ResourceController
+class Radiant::Admin::PageFieldsController < Radiant::Admin::ResourceController
   def create
     self.model = PageField.new(params[model_symbol])
     @controller_name = 'page'
