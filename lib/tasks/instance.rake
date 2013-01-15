@@ -1,5 +1,5 @@
 # Redefined standard Rails tasks only in instance mode
-unless Radiant.app?
+# unless Radiant.app?
   require 'rake/testtask'
   
   ENV['RADIANT_ENV_FILE'] = File.join(Rails.root, 'config', 'environment')
@@ -20,4 +20,4 @@ unless Radiant.app?
     end
     eval(lines.join("\n"), binding, rake)
   end
-end
+# end
