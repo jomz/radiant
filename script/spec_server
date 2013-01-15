@@ -3,7 +3,7 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../vendor/plugins/rspec/lib' # For
 require 'rubygems'
 require 'drb/drb'
 require 'rbconfig'
-require 'spec'
+require 'rspec-rails'
 require 'optparse'
 
 # This is based on Florian Weber's TDDMate
