@@ -1,5 +1,5 @@
 # Undefined unneeded tasks in instance mode
-unless Radiant.app?
+# unless Radiant.app?
   def undefine_task(*names)
     app = Rake.application
     tasks = app.instance_variable_get('@tasks')
@@ -25,4 +25,4 @@ unless Radiant.app?
     rails:update:javascripts
     rails:update:scripts
   )
-end
+# end

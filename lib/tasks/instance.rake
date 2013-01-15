@@ -2,7 +2,7 @@
 unless Radiant.app?
   require 'rake/testtask'
   
-  ENV['RADIANT_ENV_FILE'] = File.join(RAILS_ROOT, 'config', 'environment')
+  ENV['RADIANT_ENV_FILE'] = File.join(Rails.root, 'config', 'environment')
   
   [Dir["#{RADIANT_ROOT}/vendor/rails/railties/lib/tasks/*.rake"], Dir["#{RADIANT_ROOT}/vendor/plugins/rspec_on_rails/tasks/*.rake"]].flatten.each do |rake|
     lines = IO.readlines(rake)
