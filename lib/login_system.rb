@@ -89,7 +89,7 @@ module LoginSystem
     end
 
     def login_required?
-      filter_chain.any? {|f| f.method == :authenticate || f.method == :authorize }
+      _process_action_callbacks.any? {|f| f.method == :authenticate || f.method == :authorize }
     end
 
     def login_required
