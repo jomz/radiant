@@ -242,6 +242,14 @@ class Page < ActiveRecord::Base
       find_by_path(*args)
     end
 
+    def validates_path(*args)
+      configuration = args.extract_options!
+      validates_each(args, configuration) do |record, attr_name, value|
+        page = self.find_by_path(value)
+        record.errors.add(attr_name, :page_not_found, :default => configuration[:message]) if page.nil? || page.is_a?(FileNotFoundPage)
+      end
+    end
+
     def date_column_names
       self.columns.collect{|c| c.name if c.sql_type =~ /(date|time)/}.compact
     end
