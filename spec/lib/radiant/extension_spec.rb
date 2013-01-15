@@ -28,9 +28,9 @@ describe Radiant::Extension do
     BasicExtension.migrations_path.should == "#{RADIANT_ROOT}/test/fixtures/extensions/basic/db/migrate"
   end
   
-  describe BasicExtension do
-    its(:routing_file) { should match '/extensions/basic/config/routes.rb' }
-  end
+  # describe BasicExtension do
+  #   its(:routing_file) { should match '/extensions/basic/config/routes.rb' }
+  # end
   
   context "when the routing_file exists" do
     subject { RoutedExtension }

@@ -93,7 +93,7 @@ end
 describe "IntanceGenerator" do
   include FileUtils
   include GeneratorSpecHelperMethods
-  Rails::Generator::Base.prepend_sources(Rails::Generator::PathSource.new(:radiant, File.join(BASE_ROOT, 'lib', 'generators')))
+  # Rails::Generator::Base.prepend_sources(Rails::Generator::PathSource.new(:radiant, File.join(BASE_ROOT, 'lib', 'generators')))
   
   describe('with no options') do
     it_should_behave_like "all instance generators"
